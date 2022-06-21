@@ -1,0 +1,4 @@
+*.user
+/build
+/output
+main-pics.pdf

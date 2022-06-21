@@ -1,0 +1,200 @@
+\documentclass[headings=chapterprefix,a5paper]{book}
+%\documentclass[a4paper]{book}
+
+\usepackage{tocloft}
+\usepackage{auto-pst-pdf} 
+\usepackage{pgfornament}
+\usepackage{amsmath}
+\usepackage{gensymb} % Для знака градуса
+\usepackage{flexisym} % Для знака минуты
+\renewcommand\cftchapdotsep{\cftdotsep} % Добавление точечек к элементу chapter
+
+\newcommand\MyVarAuthorName{А.А.~Соболев}
+\newcommand\MyVarBookName{Повесть о сплаве на байдарке}
+
+\usepackage{pstricks}
+\usepackage{psvectorian}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{cmap}
+
+% эпиграф
+\usepackage{epigraph}
+\setlength{\epigraphwidth}{0.65\textwidth}
+\renewcommand{\textflush}{flushleft} \renewcommand{\sourceflush}{flushleft}
+\let\originalepigraph\epigraph 
+\renewcommand\epigraph[2]{\originalepigraph{\textit{#1}}{\scriptsize{#2}}} %\textsc
+
+%------------------------------------------------------------------------------------------------------------
+%настройки для А4
+%\usepackage[12pt]{extsizes}
+%\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+%\linespread{1.15} % по умолчанию 1.0
+%------------------------------------------------------------------------------------------------------------
+%настройки для А5
+\usepackage[11pt]{extsizes}
+\usepackage[left=1.5cm,right=1.5cm,top=2.0cm,bottom=2.0cm]{geometry}
+\linespread{1.0} % по умолчанию 1.0
+%------------------------------------------------------------------------------------------------------------
+%настройки для А4
+%\newcommand{\corner}[1]{%
+%	\begin{tikzpicture}[remember picture, overlay]
+%	\node[anchor=north east, shift={(-2.5cm,-5.3cm)}] at (current page.north east){%
+%		\pgfornament[width=2.2cm]{#1}};
+%	\end{tikzpicture}%
+%}
+%------------------------------------------------------------------------------------------------------------
+%настройки для А5
+\newcommand{\corner}[1]{%
+	\begin{tikzpicture}[remember picture, overlay]
+	\node[anchor=north east, shift={(-1.5cm,-4.2cm)}] at (current page.north east){%
+		\pgfornament[width=2.2cm]{#1}};
+	\end{tikzpicture}%
+}
+%------------------------------------------------------------------------------------------------------------
+\usepackage{indentfirst} % Первая строка главы - с красной строки
+\setlength{\parindent}{1.0cm} % Отступ слева первой абзаца
+\setlength{\parskip}{0.25cm} % Отступ между абзацами
+
+% Заголовки сверху и снизу каждой страницы (Headers & footers)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+
+%
+% L - Left, C - center, R - right, E - even, O - odd
+%
+%\fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
+%\fancyhead[CE]{\fancyplain{}{}}
+%\fancyhead[RE]{\fancyplain{}{\bfseries\leftmark}}
+%
+%\fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
+%\fancyhead[CO]{\fancyplain{}{}}
+%\fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
+%
+%\fancyfoot[LE]{\fancyplain{}{\bfseries\scriptsize \MyVarAuthorName, \MyVarBookName }}
+%\fancyfoot[CE]{\fancyplain{}{}}
+%\fancyfoot[RE]{\fancyplain{}{}}
+%
+%\fancyfoot[LO]{\fancyplain{}{}}
+%\fancyfoot[CO]{\fancyplain{}{}}
+%\fancyfoot[RO]{\fancyplain{}{\bfseries\scriptsize \MyVarAuthorName, \MyVarBookName }}
+
+\fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
+\fancyhead[CE]{\fancyplain{}{}}
+\fancyhead[RE]{\fancyplain{}{\bfseries\leftmark}}
+
+\fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
+\fancyhead[CO]{\fancyplain{}{}}
+\fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
+
+\fancyfoot[LE]{\fancyplain{}{}}
+\fancyfoot[CE]{\fancyplain{}{}}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize \MyVarBookName}}
+
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize \MyVarAuthorName }}
+\fancyfoot[CO]{\fancyplain{}{}}
+\fancyfoot[RO]{\fancyplain{}{}}
+
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{%
+	\markboth{#1}{}%
+}
+\renewcommand{\sectionmark}[1]{%
+	\markright{\thesection\ #1}%
+}
+
+\usepackage{tikz}
+\newcommand\blankpage{% Пустая страница
+	\null
+	\thispagestyle{empty}%
+	\newpage
+}
+
+\newcommand{\sdash}{\nobreakdash-}  % Дефис неразрывный без пробелов до и после
+\newcommand{\ndash}{\nobreakdash~--~}  % Короткое тире неразрывное с пробелами до и после
+\newcommand{\mdash}{\nobreakdash~---~} % Длинное тире неразрывное с пробелами до и после
+
+\begin{document}
+
+\clubpenalty=10000  % Это костыль против
+\widowpenalty=10000 % "висячих" строк
+
+\righthyphenmin=200 % Избавляемся
+{\sloppy			% от переносов слов
+%\begin{titlepage}
+%\author{\MyVarAuthorName}
+%\title{\MyVarBookName}
+%\date{2006\\Москва\\Самиздат}
+%\maketitle
+%\end{titlepage}
+\begin{titlepage}
+	\newpage
+	\begin{center}
+		\Huge \textbf \MyVarAuthorName
+	\end{center}	
+	\vspace{3cm}	
+	
+	\begin{center}
+	\begin{tikzpicture}
+	\fill[fill=black!30!green,] (0,0) rectangle (10.8,0.2);
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{center}
+		\huge \textbf {ПОВЕСТЬ О СПЛАВЕ\\НА БАЙДАРКЕ}
+	\end{center}	
+	\vspace{0.0cm}
+
+	\begin{center}
+	\begin{tikzpicture}
+	\fill[fill=black!30!green,] (0,0) rectangle (10.8,0.2);
+	\end{tikzpicture}
+	\end{center}
+
+	\begin{center}
+		\LARGE {по рекам Лидь, Чагода, Чагодоща}
+	\end{center}
+
+	\begin{center}
+	\begin{tikzpicture}
+	\fill[fill=black!30!green,] (0,0) rectangle (10.8,0.2);
+	\end{tikzpicture}
+	\end{center}
+		
+	\vspace{\fill}	
+	\begin{center}
+		\large
+		Москва \linebreak 
+		2022 \linebreak
+		Самиздат
+	\end{center}	
+\end{titlepage}
+\include{annotation} % Аннотация
+%\afterpage{\blankpage}
+%\afterpage{\blankpage}
+%\newpage
+%\thispagestyle{empty}
+%\newpage
+\blankpage
+\include{introduce}
+\blankpage
+\tableofcontents
+\blankpage
+% Главы
+\include{chapter1} 
+\include{chapter2} 
+\include{chapter3} 
+\include{chapter4}
+\include{chapter5}
+\include{chapter6}
+\include{chapter7}
+\include{chapter8}
+\include{chapter9}
+\include{chapter10}
+\include{chapter11}
+\include{chapter12}
+\include{chapter13}
+\include{chapter14}
+\include{chapter15}
+}
+\end{document}
