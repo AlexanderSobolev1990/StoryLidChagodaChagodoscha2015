@@ -60,28 +60,9 @@
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
 
-%
-% L - Left, C - center, R - right, E - even, O - odd
-%
-%\fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
-%\fancyhead[CE]{\fancyplain{}{}}
-%\fancyhead[RE]{\fancyplain{}{\bfseries\leftmark}}
-%
-%\fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
-%\fancyhead[CO]{\fancyplain{}{}}
-%\fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
-%
-%\fancyfoot[LE]{\fancyplain{}{\bfseries\scriptsize \MyVarAuthorName, \MyVarBookName }}
-%\fancyfoot[CE]{\fancyplain{}{}}
-%\fancyfoot[RE]{\fancyplain{}{}}
-%
-%\fancyfoot[LO]{\fancyplain{}{}}
-%\fancyfoot[CO]{\fancyplain{}{}}
-%\fancyfoot[RO]{\fancyplain{}{\bfseries\scriptsize \MyVarAuthorName, \MyVarBookName }}
-
 \fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
 \fancyhead[CE]{\fancyplain{}{}}
-\fancyhead[RE]{\fancyplain{}{\bfseries\leftmark}}
+\fancyhead[RE]{\fancyplain{}{}}
 
 \fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
 \fancyhead[CO]{\fancyplain{}{}}
@@ -99,9 +80,8 @@
 \renewcommand{\chaptermark}[1]{%
 	\markboth{#1}{}%
 }
-\renewcommand{\sectionmark}[1]{%
-	\markright{\thesection\ #1}%
-}
+
+\renewcommand{\chaptermark}[1]{\markright{\chaptername\ \thechapter.\ #1}{}}
 
 \usepackage{tikz}
 \newcommand\blankpage{% Пустая страница
@@ -130,7 +110,7 @@
 \begin{titlepage}
 	\newpage
 	\begin{center}
-		\Huge \textbf \MyVarAuthorName
+		\huge \textbf \MyVarAuthorName
 	\end{center}	
 	\vspace{3cm}	
 	
@@ -163,7 +143,7 @@
 		
 	\vspace{\fill}	
 	\begin{center}
-		\large
+		\normalsize
 		Москва \linebreak 
 		2022 \linebreak
 		Самиздат
