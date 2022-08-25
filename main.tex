@@ -1,23 +1,48 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \file       main.tex
+% \brief      Главный файл настроек TeX проекта
+% \date       24.08.22 - создан
+% \author     Соболев А.А.
+% \details    Для сборки в TexStudio - выбрать компилятор xelatex в настройках проекта
+%             Для сборки при помощи CMake - mkdir build && cd build && cmake .. && make	
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[headings=chapterprefix,a5paper]{book}
-%\documentclass[a4paper]{book}
-
+\usepackage{tikz}
 \usepackage{tocloft}
-\usepackage{auto-pst-pdf} 
 \usepackage{pgfornament}
 \usepackage{amsmath}
 \usepackage{gensymb} % Для знака градуса
-\usepackage{flexisym} % Для знака минуты
-\renewcommand\cftchapdotsep{\cftdotsep} % Добавление точечек к элементу chapter
+\usepackage{cite}
+
+\usepackage{pstricks}
+\usepackage{psvectorian}
+\usepackage{fontspec}
+\usepackage[russian]{babel}
+\usepackage{afterpage}
 
 \newcommand\MyVarAuthorName{А.А.~Соболев}
 \newcommand\MyVarBookName{Повесть о сплаве на байдарке}
 
-\usepackage{pstricks}
-\usepackage{psvectorian}
-\usepackage[utf8]{inputenc}
-\usepackage[russian]{babel}
-\usepackage{cmap}
+\setmainfont[%
+ItalicFont=NewCM10-Italic.otf,%
+BoldFont=NewCM10-Bold.otf,%
+BoldItalicFont=NewCM10-BoldItalic.otf,%
+SmallCapsFeatures={Numbers=OldStyle}]{NewCM10-Regular.otf}
 
+\setsansfont[%
+ItalicFont=NewCMSans10-Oblique.otf,%
+BoldFont=NewCMSans10-Bold.otf,%
+BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+SmallCapsFeatures={Numbers=OldStyle}]{NewCMSans10-Regular.otf}
+
+\setmonofont[ItalicFont=NewCMMono10-Italic.otf,%
+BoldFont=NewCMMono10-Bold.otf,%
+BoldItalicFont=NewCMMono10-BoldOblique.otf,%
+SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
+
+%--------------------------------------
 % эпиграф
 \usepackage{epigraph}
 \setlength{\epigraphwidth}{0.65\textwidth}
@@ -60,21 +85,21 @@
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
 
-\fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
+\fancyhead[LE]{\fancyplain{}{}}
 \fancyhead[CE]{\fancyplain{}{}}
 \fancyhead[RE]{\fancyplain{}{}}
 
 \fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
 \fancyhead[CO]{\fancyplain{}{}}
-\fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
+\fancyhead[RO]{\fancyplain{}{}}
 
-\fancyfoot[LE]{\fancyplain{}{}}
+\fancyfoot[LE]{\fancyplain{}{\bfseries\thepage}}
 \fancyfoot[CE]{\fancyplain{}{}}
 \fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize \MyVarBookName}}
 
 \fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize \MyVarAuthorName }}
 \fancyfoot[CO]{\fancyplain{}{}}
-\fancyfoot[RO]{\fancyplain{}{}}
+\fancyfoot[RO]{\fancyplain{}{\bfseries\thepage}}
 
 \renewcommand{\footrulewidth}{0.4pt}
 \renewcommand{\chaptermark}[1]{%
@@ -83,12 +108,12 @@
 
 \renewcommand{\chaptermark}[1]{\markright{\chaptername\ \thechapter.\ #1}{}}
 
-\usepackage{tikz}
-\newcommand\blankpage{% Пустая страница
-	\null
+% Пустая страница
+\newcommand\blankpage{%
+	\null%
 	\thispagestyle{empty}%
-	\newpage
-}
+	\newpage%
+}%
 
 \newcommand{\sdash}{\nobreakdash-}  % Дефис неразрывный без пробелов до и после
 \newcommand{\ndash}{\nobreakdash~--~}  % Короткое тире неразрывное с пробелами до и после
@@ -96,85 +121,33 @@
 
 \begin{document}
 
+\relpenalty=10000
+\binoppenalty=10000
 \clubpenalty=10000  % Это костыль против
 \widowpenalty=10000 % "висячих" строк
 
 \righthyphenmin=200 % Избавляемся
-{\sloppy			% от переносов слов
-%\begin{titlepage}
-%\author{\MyVarAuthorName}
-%\title{\MyVarBookName}
-%\date{2006\\Москва\\Самиздат}
-%\maketitle
-%\end{titlepage}
-\begin{titlepage}
-	\newpage
-	\begin{center}
-		\huge \textbf \MyVarAuthorName
-	\end{center}	
-	\vspace{3cm}	
-	
-	\begin{center}
-	\begin{tikzpicture}
-	\fill[fill=black!30!green,] (0,0) rectangle (10.8,0.2);
-	\end{tikzpicture}
-	\end{center}
-	
-	\begin{center}
-		\huge \textbf {ПОВЕСТЬ О СПЛАВЕ\\НА БАЙДАРКЕ}
-	\end{center}	
-	\vspace{0.0cm}
-
-	\begin{center}
-	\begin{tikzpicture}
-	\fill[fill=black!30!green,] (0,0) rectangle (10.8,0.2);
-	\end{tikzpicture}
-	\end{center}
-
-	\begin{center}
-		\LARGE {по рекам Лидь, Чагода, Чагодоща}
-	\end{center}
-
-	\begin{center}
-	\begin{tikzpicture}
-	\fill[fill=black!30!green,] (0,0) rectangle (10.8,0.2);
-	\end{tikzpicture}
-	\end{center}
-		
-	\vspace{\fill}	
-	\begin{center}
-		\normalsize
-		Москва \linebreak 
-		2022 \linebreak
-		Самиздат
-	\end{center}	
-\end{titlepage}
-\include{annotation} % Аннотация
-%\afterpage{\blankpage}
-%\afterpage{\blankpage}
-%\newpage
-%\thispagestyle{empty}
-%\newpage
-\blankpage
-\include{introduce}
-\blankpage
-\tableofcontents
-\blankpage
-% Главы
-\include{chapter1} 
-\include{chapter2} 
-\include{chapter3} 
-\include{chapter4}
-\include{chapter5}
-\include{chapter6}
-\include{chapter7}
-\include{chapter8}
-\include{chapter9}
-\include{chapter10}
-\include{chapter11}
-\include{chapter12}
-\include{chapter13}
-\include{chapter14}
-\include{chapter15}
+{\sloppy
+\input{titlepage}
+\afterpage{\blankpage}
+\input{лидь2015/аннотация}
+\afterpage{\blankpage}
+\input{лидь2015/введение}
+\afterpage{\blankpage}
+\input{лидь2015/несколько_слов_о_сплавах} 
+\input{лидь2015/байдарка} 
+\input{лидь2015/маршрут_и_сборы} 
+\input{лидь2015/отъезд}
+\input{лидь2015/заброска}
+\input{лидь2015/катастрофа}
+\input{лидь2015/фонтан}
+\input{лидь2015/первая_дневка}
+\input{лидь2015/дозаправка_в_чагоде}
+\input{лидь2015/долгий_переход}
+\input{лидь2015/кабаны_и_удача}
+\input{лидь2015/вторая_дневка}
+\input{лидь2015/досрочный_антистапель}
+\input{лидь2015/возвращение}
+\input{лидь2015/заключение}
 }
 \end{document}
