@@ -15,7 +15,6 @@
 \usepackage{amsmath}
 \usepackage{gensymb} % Для знака градуса
 \usepackage{cite}
-
 \usepackage{pstricks}
 \usepackage{psvectorian}
 \usepackage{fontspec}
@@ -134,6 +133,7 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \afterpage{\blankpage}
 \input{лидь2015/введение}
 \afterpage{\blankpage}
+%
 \input{лидь2015/несколько_слов_о_сплавах} 
 \input{лидь2015/байдарка} 
 \input{лидь2015/маршрут_и_сборы} 
@@ -149,5 +149,8 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \input{лидь2015/досрочный_антистапель}
 \input{лидь2015/возвращение}
 \input{лидь2015/заключение}
+%
+\bibliographystyle{apalike}%{plain}%{alpha}%
+\bibliography{bibliography}
 }
 \end{document}

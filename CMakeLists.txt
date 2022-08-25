@@ -26,6 +26,7 @@ SET(parts
 )
 ADD_LATEX_DOCUMENT(
     main.tex
+    BIBFILES bibliography.bib
     INPUTS ${parts}    
 )
 # Команда копирует результирующий файл main.pdf в директорию /output с переименованием
