@@ -7,6 +7,7 @@ INCLUDE(UseLATEX.cmake)
 SET(parts
     main.xmpdata
     titlepage.tex
+    typograph.tex
     лидь2015/аннотация.tex
     лидь2015/введение.tex
     лидь2015/несколько_слов_о_сплавах.tex
