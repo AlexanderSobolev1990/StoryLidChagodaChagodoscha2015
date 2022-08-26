@@ -5,6 +5,7 @@ SET(PDFLATEX_COMPILER xelatex)
 SET(LATEX_DEFAULT_BUILD pdf)
 INCLUDE(UseLATEX.cmake)
 SET(parts
+    main.xmpdata
     titlepage.tex
     лидь2015/аннотация.tex
     лидь2015/введение.tex

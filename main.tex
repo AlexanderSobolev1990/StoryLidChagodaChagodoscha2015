@@ -9,6 +9,11 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[headings=chapterprefix,a5paper]{book}
+%
+\usepackage[12pt]{extsizes}
+\usepackage[left=1.5cm,right=1.5cm,top=2.0cm,bottom=2.0cm]{geometry}
+\linespread{1.0} % по умолчанию 1.0
+%
 \usepackage{tikz}
 \usepackage{tocloft}
 \usepackage{pgfornament}
@@ -19,10 +24,6 @@
 \usepackage{psvectorian}
 \usepackage{fontspec}
 \usepackage[russian]{babel}
-\usepackage{afterpage}
-
-\newcommand\MyVarAuthorName{А.А.~Соболев}
-\newcommand\MyVarBookName{Повесть о сплаве на байдарке}
 
 \setmainfont[%
 ItalicFont=NewCM10-Italic.otf,%
@@ -41,10 +42,13 @@ BoldFont=NewCMMono10-Bold.otf,%
 BoldItalicFont=NewCMMono10-BoldOblique.otf,%
 SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 
+\usepackage{afterpage}
+\usepackage[x-1a3]{pdfx} % Вызывает невозможность собирать в texstudio!
+%
 %--------------------------------------
 % эпиграф
 \usepackage{epigraph}
-\setlength{\epigraphwidth}{0.65\textwidth}
+\setlength{\epigraphwidth}{0.60\textwidth}%0.65
 \renewcommand{\textflush}{flushleft} \renewcommand{\sourceflush}{flushleft}
 \let\originalepigraph\epigraph 
 \renewcommand\epigraph[2]{\originalepigraph{\textit{#1}}{\scriptsize{#2}}} %\textsc
@@ -56,9 +60,9 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 %\linespread{1.15} % по умолчанию 1.0
 %------------------------------------------------------------------------------------------------------------
 %настройки для А5
-\usepackage[11pt]{extsizes}
-\usepackage[left=1.5cm,right=1.5cm,top=2.0cm,bottom=2.0cm]{geometry}
-\linespread{1.0} % по умолчанию 1.0
+%\usepackage[11pt]{extsizes}
+%\usepackage[left=1.5cm,right=1.5cm,top=2.0cm,bottom=2.0cm]{geometry}
+%\linespread{1.0} % по умолчанию 1.0
 %------------------------------------------------------------------------------------------------------------
 %настройки для А4
 %\newcommand{\corner}[1]{%
@@ -109,14 +113,19 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 
 % Пустая страница
 \newcommand\blankpage{%
-	\null%
-	\thispagestyle{empty}%
-	\newpage%
-}%
+	\null
+	\thispagestyle{empty}
+	\newpage
+}
 
 \newcommand{\sdash}{\nobreakdash-}  % Дефис неразрывный без пробелов до и после
 \newcommand{\ndash}{\nobreakdash~--~}  % Короткое тире неразрывное с пробелами до и после
 \newcommand{\mdash}{\nobreakdash~---~} % Длинное тире неразрывное с пробелами до и после
+
+\renewcommand\cftchapdotsep{\cftdotsep} % Добавление точечек к элементу chapter
+
+\newcommand\MyVarAuthorName{А.А.~Соболев}
+\newcommand\MyVarBookName{Повесть о сплаве на байдарке}
 
 \begin{document}
 
@@ -130,6 +139,18 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \input{titlepage}
 \afterpage{\blankpage}
 \input{лидь2015/аннотация}
+%\afterpage{\blankpage}
+% Замена \blankpage в данном случае:
+\newpage
+\null
+\thispagestyle{empty}
+\newpage
+%
+{
+%\setlength{\cftbeforetoctitleskip}{1.5cm}%чтобы влезло на 1 страницу 11 шрифт
+\setlength{\cftbeforetoctitleskip}{0.5cm}%чтобы влезло на 1 страницу 12 шрифт
+\tableofcontents
+}
 \afterpage{\blankpage}
 \input{лидь2015/введение}
 \afterpage{\blankpage}
@@ -152,5 +173,6 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 %
 \bibliographystyle{apalike}%{plain}%{alpha}%
 \bibliography{bibliography}
+\afterpage{\blankpage} % чтобы число страниц было кратно 8
 }
 \end{document}
