@@ -25,10 +25,12 @@ SET(parts
     лидь2015/досрочный_антистапель.tex
     лидь2015/возвращение.tex
     лидь2015/заключение.tex
+    lastpage.tex
 )
 ADD_LATEX_DOCUMENT(
     main.tex
     BIBFILES bibliography.bib
+    IMAGE_DIRS images
     INPUTS ${parts}    
 )
 # Команда копирует результирующий файл main.pdf в директорию /output с переименованием

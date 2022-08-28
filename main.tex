@@ -46,6 +46,8 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \usepackage[x-1a3]{pdfx} % Вызывает невозможность собирать в texstudio!
 \usepackage{ctable}
 \usepackage{longtable}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 %--------------------------------------
 % эпиграф
 \usepackage{epigraph}
@@ -127,11 +129,12 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 
 \newcommand\MyVarAuthorName{А.А.~Соболев}
 \newcommand\MyVarBookName{Повесть о сплаве на байдарке}
+\newcommand\MyVarBookNamesec{по рекам Лидь, Чагода, Чагодоща}
 
-\newcommand{\UDK}{1234}
-\newcommand{\BBK}{5678}
-\newcommand{\BibCode}{C 77}
-\newcommand{\ISBN}{ISBN 1234-5678-9012-3456}
+\newcommand{\UDK}{0000}
+\newcommand{\BBK}{0000}
+\newcommand{\BibCode}{C 0000}
+\newcommand{\ISBN}{ISBN 0000-0000-0000-0000}
 
 \begin{document}
 
@@ -180,6 +183,7 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 %
 \bibliographystyle{apalike}%{plain}%{alpha}%
 \bibliography{bibliography}
-\afterpage{\blankpage} % чтобы число страниц было кратно 8
+\input{lastpage}
+%\afterpage{\blankpage} % чтобы число страниц было кратно 8
 }
 \end{document}
