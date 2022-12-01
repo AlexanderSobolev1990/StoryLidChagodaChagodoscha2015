@@ -8,8 +8,9 @@
 %             Для сборки при помощи CMake - mkdir build && cd build && cmake .. && make	
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listfiles
 \documentclass[headings=chapterprefix,a5paper]{book}
-%
+\usepackage[monochrome]{color}
 \usepackage[12pt]{extsizes}
 \usepackage[left=1.5cm,right=1.5cm,top=2.0cm,bottom=2.0cm]{geometry}
 \linespread{1.0} % по умолчанию 1.0
@@ -23,6 +24,7 @@
 \usepackage{pstricks}
 \usepackage{psvectorian}
 \usepackage{fontspec}
+\usepackage{pdfpages}
 \usepackage[russian]{babel}
 
 \setmainfont[%
@@ -131,10 +133,10 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \newcommand\MyVarBookName{Повесть о сплаве на байдарке}
 \newcommand\MyVarBookNamesec{по рекам Лидь, Чагода, Чагодоща}
 
-\newcommand{\UDK}{0000}
-\newcommand{\BBK}{0000}
-\newcommand{\BibCode}{C 0000}
-\newcommand{\ISBN}{ISBN 0000-0000-0000-0000}
+\newcommand{\UDK}{821.161.1}
+\newcommand{\BBK}{84 (2Рос-Рус) 6}
+\newcommand{\BibCode}{C54}
+\newcommand{\ISBN}{ISBN 978-5-6048796-4-1}
 
 \begin{document}
 
@@ -145,6 +147,11 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 
 \righthyphenmin=200 % Избавляемся
 {\sloppy
+\includepdf{обложка_а5.pdf}
+\newpage
+\null
+\thispagestyle{empty}
+\newpage
 \input{titlepage}
 \input{typograph}
 %\afterpage{\blankpage}
