@@ -38,4 +38,4 @@ add_custom_command(
         TARGET main
         COMMAND ${CMAKE_COMMAND} -E copy
                 ${CMAKE_CURRENT_SOURCE_DIR}/build/main.pdf
-                ${CMAKE_CURRENT_SOURCE_DIR}/output/Повесть_о_сплаве_на_байдарке_Лидь_2015_Соболев_А_А.pdf)
+                ${CMAKE_CURRENT_SOURCE_DIR}/output/StoryLidChagodaChagodoscha2015_Sobolev.pdf)
