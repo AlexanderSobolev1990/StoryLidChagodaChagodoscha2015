@@ -6,6 +6,7 @@ SET(LATEX_DEFAULT_BUILD pdf)
 INCLUDE(UseLATEX.cmake)
 SET(parts
     main.xmpdata
+    coordsvalues.tex
     titlepage.tex
     typograph.tex
     лидь2015/аннотация.tex
