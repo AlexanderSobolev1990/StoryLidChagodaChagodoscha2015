@@ -127,6 +127,11 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \newcommand{\ndash}{\nobreakdash~--~}  % Короткое тире неразрывное с пробелами до и после
 \newcommand{\mdash}{\nobreakdash~---~} % Длинное тире неразрывное с пробелами до и после
 
+\renewcommand{\cftchappresnum}{Глава }
+\setlength{\cftbeforechapskip}{0.7em}
+%\renewcommand\cftchapafterpnum{\vskip 0em} % for spacing after each entry
+\AtBeginDocument{\addtolength\cftchapnumwidth{\widthof{\bfseries Глава~ }}}
+
 \renewcommand\cftchapdotsep{\cftdotsep} % Добавление точечек к элементу chapter
 
 \newcommand\MyVarAuthorName{А.А.~Соболев}
@@ -140,6 +145,20 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 \usepackage[symbol]{footmisc}
+
+\newcommand{\vepsianrose}{%
+	\begin{figure}[h!]
+%		\vspace*{-77mm}
+		\vspace*{-70mm}
+%		\hspace*{8.15cm}\includegraphics[scale=0.1]{vepsroseb} % Черный
+		\hspace*{8.8cm}\includegraphics[scale=0.1]{vepsroseb} % Черный
+	\end{figure}
+	\vspace*{4.0cm}
+}
+
+\usepackage{titlesec}
+\usepackage[colorlinks=true,linktoc=all]{hyperref} % hyperfootnotes=false - не выделять сноски
+\usepackage{bookmark}
 
 \begin{document}
 \input{coordsvalues}
@@ -167,15 +186,18 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \newpage
 %
 {
-%\setlength{\cftbeforetoctitleskip}{1.5cm}%чтобы влезло на 1 страницу 11 шрифт
-\setlength{\cftbeforetoctitleskip}{0.5cm}%чтобы влезло на 1 страницу 12 шрифт
+%\setlength{\cftbeforetoctitleskip}{1.5cm}%чтобы влезло на 1 страницу 11 шрифт - 15 глав
+%\setlength{\cftbeforetoctitleskip}{0.5cm}%чтобы влезло на 1 страницу 12 шрифт - 15 глав
+%\setlength{\cftbeforetoctitleskip}{-0.5cm}%чтобы влезло на 1 страницу 12 шрифт - 15 глав + Литература
+\setlength{\cftbeforetoctitleskip}{-0.1cm}%чтобы влезло на 1 страницу 12 шрифт - 15 глав + Литература + Слово "Глава"
+\pdfbookmark[0]{\contentsname}{toc} % Добавлять перед \tableofcontents
 \tableofcontents
 }
 \afterpage{\blankpage}
 \input{лидь2015/введение}
 \afterpage{\blankpage}
 %
-\input{лидь2015/несколько_слов_о_сплавах} 
+\input{лидь2015/несколько_слов_о_сплавах}
 \input{лидь2015/байдарка} 
 \input{лидь2015/маршрут_и_сборы} 
 \input{лидь2015/отъезд}
@@ -191,9 +213,9 @@ SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
 \input{лидь2015/возвращение}
 \input{лидь2015/заключение}
 %
-%\bibliographystyle{apalike}%{plain}%{alpha}%
-\bibliographystyle{abbrvnatmy.bst}
+\bibliographystyle{abbrvnatmy.bst}%\bibliographystyle{apalike}%{plain}%{alpha}%
 \bibliography{bibliography}
+\addcontentsline{toc}{chapter}{Литература}
 \input{lastpage}
 %\afterpage{\blankpage} % чтобы число страниц было кратно 8
 }
